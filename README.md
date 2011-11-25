@@ -1,18 +1,17 @@
 # Marker
-
-Markdown Editor for Windows. Build on .NET Framework 4.0
+Markdown Editor for Windows. 
 
 ## Features
+*  Dual panes allow for quick editing and viewing
+*  *Very Fast*
+* Small memory usage
+* Open source
 
-*  Dual panes allow for quick viewing
-*  *Fast!!*
-* Built on .NET
-* **Open source**
-
-## Install
-
-Click the downloads link on the Github page to download the single EXE.
-
-## Preview
-
+## Screenshot
 ![Preview](http://i.imgur.com/W8dgZ.png)
+
+## Acknowledgements
+* [MarkdownSharp](http://code.google.com/p/markdownsharp/)
+
+## License
+Marker is licensed under [MIT](https://raw.github.com/chrisledet/Marker/master/LICENSE)
