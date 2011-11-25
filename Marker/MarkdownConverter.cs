@@ -1,5 +1,26 @@
-﻿using System;
-using System.Text;
+﻿/*
+ * Marker - Markdown Editor for Windows 
+ * Copyright (c) 2011 Chris Ledet
+ * http://github.com/chrisledet/Marker
+ * 
+ * Markdown is a text-to-HTML conversion tool for web writers
+ * Copyright (c) 2004 John Gruber
+ * http://daringfireball.net/projects/markdown/
+ * 
+ * Markdown.NET
+ * Copyright (c) 2004-2009 Milan Negovan
+ * http://www.aspnetresources.com
+ * http://aspnetresources.com/blog/markdown_announced.aspx
+ * 
+ * MarkdownSharp
+ * Copyright (c) 2009-2010 Jeff Atwood
+ * http://stackoverflow.com
+ * http://www.codinghorror.com/blog/
+ * http://code.google.com/p/markdownsharp/
+ * 
+ */
+
+using System;
 using MarkdownSharp;
 
 namespace Marker
