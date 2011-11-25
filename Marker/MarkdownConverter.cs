@@ -6,12 +6,29 @@ namespace Marker
 {
     class MarkdownConverter
     {
-        private static Markdown markdown = new Markdown();
-        const String body = "<html><body style=\"font: 14px helvetica,arial,freesans,clean,sans-serif\">{0}</body></html>";
 
-        public static String convert(String text)
+        private String font;
+        private static Markdown markdown;
+
+        public String Font
         {
-            return String.Format(body, markdown.Transform(text));
+            get { return this.font; }
+            set { this.font = value; } 
+        }
+
+        public MarkdownConverter()
+        {
+            markdown = new Markdown();
+        }
+
+        public String convert(String text)
+        {
+            return String.Format(htmlBody(), markdown.Transform(text));
+        }
+
+        private String htmlBody()
+        {
+            return "<html><body style=\"font: 14px " + Font + "\">{0}</body></html>";
         }
     }
 }
