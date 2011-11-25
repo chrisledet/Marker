@@ -60,8 +60,9 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="lib\Markdown\Escapes.cs" />
-    <Compile Include="lib\Markdown\Markdown.cs" />
+    <Compile Include="lib\MarkdownSharp\Escapes.cs" />
+    <Compile Include="lib\MarkdownSharp\Markdown.cs" />
+    <Compile Include="lib\MarkdownSharp\MarkdownOld.cs" />
     <Compile Include="MarkdownConverter.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -69,7 +70,6 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="lib\Markdown\MarkdownOld.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainWindow.resx">
