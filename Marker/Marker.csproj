@@ -60,9 +60,9 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Escapes.cs" />
+    <Compile Include="lib\Markdown\Escapes.cs" />
     <Compile Include="lib\Markdown\Markdown.cs" />
-    <Compile Include="lib\Markdown\MarkdownConverter.cs" />
+    <Compile Include="MarkdownConverter.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
