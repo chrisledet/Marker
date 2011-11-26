@@ -29,7 +29,7 @@ namespace Marker
     {
 
         private String font;
-        private static Markdown markdown;
+        private Markdown markdown;
 
         public String Font
         {

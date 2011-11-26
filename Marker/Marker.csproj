@@ -60,10 +60,11 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="lib\Marker\Exporter.cs" />
     <Compile Include="lib\MarkdownSharp\Escapes.cs" />
     <Compile Include="lib\MarkdownSharp\Markdown.cs" />
     <Compile Include="lib\MarkdownSharp\MarkdownOld.cs" />
-    <Compile Include="MarkdownConverter.cs" />
+    <Compile Include="lib\Marker\MarkdownConverter.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
