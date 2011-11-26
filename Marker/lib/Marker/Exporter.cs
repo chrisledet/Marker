@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.IO;
 
 namespace Marker
@@ -19,23 +20,40 @@ namespace Marker
             set { this.markdownText = value; }
         }
 
-        public void saveMarkdown(String pathToFile)
+        public String openFile(String filePath)
         {
-            saveFile(pathToFile, markdownText);
-        }
+            if (!File.Exists(filePath)) return "";
 
-        public void saveHtml(String pathToFile)
-        {
-            saveFile(pathToFile, htmlText);
-        }
-
-        private void saveFile(String pathToFile, String text)
-        {
-            if (pathToFile.Trim() != "")
+            StringBuilder fileContents = new StringBuilder();
+            using (StreamReader sr = new StreamReader(filePath))
             {
-                StreamWriter file = new StreamWriter(pathToFile);
+                String line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    fileContents.AppendFormat("{0}\r\n", line);
+                }
+            }
+
+            return fileContents.ToString();
+        }
+
+        public void saveMarkdown(String filePath)
+        {
+            saveFile(filePath, markdownText);
+        }
+
+        public void saveHtml(String filePath)
+        {
+            saveFile(filePath, htmlText);
+        }
+
+        private void saveFile(String filePath, String text)
+        {
+            if (filePath.Trim() == "") return;
+
+            using (StreamWriter file = new StreamWriter(filePath))
+            {
                 file.Write(text);
-                file.Close();
             }
         }
     }

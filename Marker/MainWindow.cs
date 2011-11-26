@@ -16,10 +16,21 @@ namespace Marker
         private Exporter exporter;
         private String lastSavedFilename, lastSavedFilePath;
 
+        public MainWindow(String filePath)
+        {
+            initializeWindow();
+            openFile(filePath);
+        }
+
         public MainWindow()
         {
+            initializeWindow();
+        }
+
+        private void initializeWindow()
+        {
             InitializeComponent();
-            
+
             autoSizeSplitContainer();
             autoSizeMarkdownTextbox();
 
@@ -39,6 +50,12 @@ namespace Marker
             markdownPreview.DocumentText = m.convert(markdownTextBox.Text);
         }
 
+        private void openMenuItem_Click(object sender, EventArgs e)
+        {
+            String openPath = openMarkdownDialog();
+            openFile(openPath);
+        }
+        
         private void saveMenuItem_Click(object sender, EventArgs e)
         {
             String savePath = lastSavedFilePath != "" ? lastSavedFilePath : saveMarkdownDialog();
@@ -48,7 +65,7 @@ namespace Marker
                 exporter.MarkdownText = markdownTextBox.Text;
                 exporter.saveMarkdown(savePath);
                 setLastSavedFile(savePath);
-                setTitle(lastSavedFilename);
+                refreshTitle();
             }
         }
 
@@ -83,18 +100,28 @@ namespace Marker
         private String saveMarkdownDialog()
         {
             SaveFileDialog saveDialog = new SaveFileDialog();
-            saveDialog.Filter = "Markdown|*.md";
-            saveDialog.Title = "Save Markdown File";
+            saveDialog.Filter = "Markdown (*.md)|*.md";
+            saveDialog.Title  = "Save Markdown File";
             saveDialog.ShowDialog();
             return saveDialog.FileName;
         }
 
-        /*
-         *  appends filename to Main window's title
-         */
-        private void setTitle(String filename)
+        private String openMarkdownDialog()
         {
-            this.Text = String.Format("{0} - {1}", filename, appName);
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "Markdown (*.md)|*md";
+            fileDialog.Title  = "Open Markdown file";
+            fileDialog.RestoreDirectory = true;
+            fileDialog.ShowDialog();
+            return fileDialog.FileName;
+        }
+
+        /*
+         *  appends last saved filename to Main window's title
+         */
+        private void refreshTitle()
+        {
+            this.Text = String.Format("{0} - {1}", lastSavedFilename, appName);
         }
 
         /*
@@ -111,5 +138,16 @@ namespace Marker
             Console.WriteLine("Saving to {0}", lastSavedFilePath);
             Console.WriteLine("Saved file: {0}", lastSavedFilename);
         }
+
+        /*
+         * opens file from filePath and puts it into markdown TextBox
+         */
+        private void openFile(String filePath)
+        {
+            markdownTextBox.Text = exporter.openFile(filePath);
+            setLastSavedFile(filePath);
+            refreshTitle();
+        }
+
     }
 }
