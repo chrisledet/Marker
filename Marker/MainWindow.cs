@@ -94,9 +94,8 @@ namespace Marker
          */
         private void setTitle(String filename)
         {
-            this.Text = String.Format("{0} - {1}", appName, filename);
+            this.Text = String.Format("{0} - {1}", filename, appName);
         }
-
 
         /*
          * setter for the lastSavedFilePath and lastSavedFilename
@@ -106,8 +105,8 @@ namespace Marker
             lastSavedFilePath = filePath;
 
             int startOfFileName = lastSavedFilePath.LastIndexOf("\\") + 1;
-            int startOfFileExtension = lastSavedFilePath.LastIndexOf(".");
-            lastSavedFilename = lastSavedFilePath.Substring(startOfFileName, startOfFileExtension - startOfFileName);
+            lastSavedFilename = 
+                lastSavedFilePath.Substring(startOfFileName, lastSavedFilePath.Length - startOfFileName);
 
             Console.WriteLine("Saving to {0}", lastSavedFilePath);
             Console.WriteLine("Saved file: {0}", lastSavedFilename);

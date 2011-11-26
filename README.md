@@ -8,7 +8,7 @@ Markdown Editor for Windows.
 * Open source
 
 ## Screenshot
-![Preview](http://i.imgur.com/W8dgZ.png)
+![screenshot](http://i.imgur.com/8b2nv.png)
 
 ## Acknowledgements
 * [MarkdownSharp](http://code.google.com/p/markdownsharp/)
