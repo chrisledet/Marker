@@ -58,15 +58,14 @@ namespace Marker
         
         private void saveMenuItem_Click(object sender, EventArgs e)
         {
-            String savePath = lastSavedFilePath != "" ? lastSavedFilePath : saveMarkdownDialog();
+            String filePath = lastSavedFilePath != "" ? lastSavedFilePath : saveMarkdownDialog();
+            saveFile(filePath);
+        }
 
-            if (savePath != "")
-            {
-                exporter.MarkdownText = markdownTextBox.Text;
-                exporter.saveMarkdown(savePath);
-                setLastSavedFile(savePath);
-                refreshTitle();
-            }
+        private void saveAsMenuItem_Click(object sender, EventArgs e)
+        {
+            String filePath = saveMarkdownDialog();
+            saveFile(filePath);
         }
 
         private void exitMenuItem_Click(object sender, EventArgs e)
@@ -101,7 +100,6 @@ namespace Marker
         {
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.Filter = "Markdown (*.md)|*.md";
-            saveDialog.Title  = "Save Markdown File";
             saveDialog.ShowDialog();
             return saveDialog.FileName;
         }
@@ -145,6 +143,16 @@ namespace Marker
         private void openFile(String filePath)
         {
             markdownTextBox.Text = exporter.openFile(filePath);
+            setLastSavedFile(filePath);
+            refreshTitle();
+        }
+
+        private void saveFile(String filePath)
+        {
+            if (filePath.Trim() == "") return;
+
+            exporter.MarkdownText = markdownTextBox.Text;
+            exporter.saveMarkdown(filePath);
             setLastSavedFile(filePath);
             refreshTitle();
         }

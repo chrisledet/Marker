@@ -36,15 +36,16 @@
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // markdownPreview
-            // 
+            //
             this.markdownPreview.AllowWebBrowserDrop = false;
             this.markdownPreview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.markdownPreview.Location = new System.Drawing.Point(0, 0);
@@ -52,9 +53,9 @@
             this.markdownPreview.Name = "markdownPreview";
             this.markdownPreview.Size = new System.Drawing.Size(448, 536);
             this.markdownPreview.TabIndex = 0;
-            // 
+            //
             // markdownTextBox
-            // 
+            //
             this.markdownTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.markdownTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.markdownTextBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,6 +102,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openMenuItem,
             this.saveMenuItem,
+            this.saveAsMenuItem,
             this.exitMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
@@ -130,6 +132,13 @@
             this.exitMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.exitMenuItem_Click);
+            //
+            // saveAsMenuItem
+            //
+            this.saveAsMenuItem.Name = "saveAsMenuItem";
+            this.saveAsMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsMenuItem.Text = "Save As";
+            this.saveAsMenuItem.Click += new System.EventHandler(this.saveAsMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -163,6 +172,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsMenuItem;
 
     }
 }
