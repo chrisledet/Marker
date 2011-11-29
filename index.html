@@ -8,7 +8,9 @@
   <style type="text/css">
     body {
       margin-top: 1.1em;
-      background-color: #4ea6cc;
+      background: -webkit-gradient(linear, left top, left bottom, from(#49b1ba), to(#223157));
+      background: -moz-linear-gradient(top,  #49b1ba,  #223157);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#49b1ba', endColorstr='#223157');
       font-family: Helvetica, Arial, FreeSans, san-serif;
       color: #fff;
     }
@@ -31,6 +33,9 @@
     h2 { font-size: 1.5em; color: #fff; }
     h3 { text-align: center; color: #fff; }
     a { color: #fff; }
+    .logo {
+      float: left;
+    }
     .download { float: right; }
     pre { background: #000; color: #fff; padding: 15px;}
     hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
@@ -42,6 +47,10 @@
   <a href="https://github.com/chrisledet/Marker"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
   <div id="container">
+
+    <div class="logo">
+      <img src="images/temp-logo.png" alt="Marker Temp Logo"/>
+    </div>
 
     <div class="download">
       <a href="https://github.com/downloads/chrisledet/Marker/Marker-Executable-Latest.zip">
