@@ -1,0 +1,83 @@
+body {
+  margin-top: 1.1em;
+  background: -webkit-gradient(linear, left top, left bottom, from(#49b1ba), to(#223157));
+  background: -moz-linear-gradient(top,  #49b1ba,  #223157);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#49b1ba', endColorstr='#223157');
+  font-family: Helvetica, Segoe UI, Arial, FreeSans, san-serif;
+  color: #fff;
+}
+#container { 
+  margin: 0 auto;
+  width: 910px;
+  height: auto;
+}
+h1 { 
+  font-size: 3.8em;
+  color: #fff;
+  margin-bottom: 3px;
+  padding: .25em 0;
+}
+h1 a { text-decoration: none }
+h1 .description {
+  font-size: 16px;
+  font-weight: normal;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  font-style: italic;
+}
+h2 { font-size: 1.5em; color: #fff; }
+h3 { text-align: center; color: #fff; }
+a { color: #fff; }
+.logo {
+  float: left;
+}
+.download { float: right; }
+pre { background: #000; color: #fff; padding: 15px;}
+hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+.footer { font-size: 0.9em; text-align: center; padding-top: 30px; }
+
+#thanks {
+  font-size: 2em;
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+  min-height: 465px;
+}
+
+button.minimal {
+  background: #e3e3e3;
+  border: 1px solid #bbb;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 1px 1px #f6f6f6;
+  -moz-box-shadow: inset 0 0 1px 1px #f6f6f6;
+  -ms-box-shadow: inset 0 0 1px 1px #f6f6f6;
+  -o-box-shadow: inset 0 0 1px 1px #f6f6f6;
+  box-shadow: inset 0 0 1px 1px #f6f6f6;
+  color: #333;
+  font: bold 12px "helvetica neue", helvetica, arial, sans-serif;
+  line-height: 1;
+  padding: 8px 0 9px;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff;
+  width: 150px; }
+  button.minimal:hover {
+    background: #d9d9d9;
+    -webkit-box-shadow: inset 0 0 1px 1px #eaeaea;
+    -moz-box-shadow: inset 0 0 1px 1px #eaeaea;
+    -ms-box-shadow: inset 0 0 1px 1px #eaeaea;
+    -o-box-shadow: inset 0 0 1px 1px #eaeaea;
+    box-shadow: inset 0 0 1px 1px #eaeaea;
+    color: #222;
+    cursor: pointer; }
+  button.minimal:active {
+    background: #d0d0d0;
+    -webkit-box-shadow: inset 0 0 1px 1px #e3e3e3;
+    -moz-box-shadow: inset 0 0 1px 1px #e3e3e3;
+    -ms-box-shadow: inset 0 0 1px 1px #e3e3e3;
+    -o-box-shadow: inset 0 0 1px 1px #e3e3e3;
+    box-shadow: inset 0 0 1px 1px #e3e3e3;
+    color: #000; }
