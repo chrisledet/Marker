@@ -5,7 +5,7 @@ Markdown Editor for Windows.
 *  Dual panes allow for quick editing and viewing
 *  *Very Fast*
 * Small memory usage
-* Open source
+* Export to HTML
 
 ## Screenshot
 ![screenshot](http://i.imgur.com/8b2nv.png)
