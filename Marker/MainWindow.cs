@@ -68,6 +68,12 @@ namespace Marker
             saveFile(filePath);
         }
 
+        private void exportToHTMLToolMenuItem_Click(object sender, EventArgs e)
+        {
+            String filePath = saveHtmlDialog();
+            exportHtml(filePath);
+        }
+
         private void exitMenuItem_Click(object sender, EventArgs e)
         {
             #region TODO
@@ -114,6 +120,16 @@ namespace Marker
             return fileDialog.FileName;
         }
 
+        private String saveHtmlDialog()
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "HTML (*.html)|*html";
+            saveDialog.DefaultExt = "html";
+            saveDialog.FileName = "Untitled.html";
+            saveDialog.ShowDialog();
+            return saveDialog.FileName;
+        }
+
         /*
          *  appends last saved filename to Main window's title
          */
@@ -157,5 +173,11 @@ namespace Marker
             refreshTitle();
         }
 
+        private void exportHtml(String filePath)
+        {
+            if (filePath.Trim() == "") return;
+            exporter.HtmlText = markdownPreview.DocumentText;
+            exporter.saveHtml(filePath);
+        }
     }
 }
