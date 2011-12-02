@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Marker
 {
-    class Exporter
+    class FileHandler
     {
         private String htmlText, markdownText;
 

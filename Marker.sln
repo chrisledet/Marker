@@ -3,14 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marker", "Marker\Marker.csproj", "{CBE3A6D6-28B5-4933-8658-327DB1BCF6EB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9C0A389B-93D9-4F31-98A0-BAD14D371E37}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		Marker.vsmdi = Marker.vsmdi
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Marker.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBE3A6D6-28B5-4933-8658-327DB1BCF6EB}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{CBE3A6D6-28B5-4933-8658-327DB1BCF6EB}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{CBE3A6D6-28B5-4933-8658-327DB1BCF6EB}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{CBE3A6D6-28B5-4933-8658-327DB1BCF6EB}.Debug|x86.ActiveCfg = Debug|x86
 		{CBE3A6D6-28B5-4933-8658-327DB1BCF6EB}.Debug|x86.Build.0 = Debug|x86
+		{CBE3A6D6-28B5-4933-8658-327DB1BCF6EB}.Release|Any CPU.ActiveCfg = Release|x86
+		{CBE3A6D6-28B5-4933-8658-327DB1BCF6EB}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{CBE3A6D6-28B5-4933-8658-327DB1BCF6EB}.Release|Mixed Platforms.Build.0 = Release|x86
 		{CBE3A6D6-28B5-4933-8658-327DB1BCF6EB}.Release|x86.ActiveCfg = Release|x86
 		{CBE3A6D6-28B5-4933-8658-327DB1BCF6EB}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection

@@ -1,4 +1,5 @@
-﻿/*
+﻿#region LICENSE
+/*
  * Marker - Markdown Editor for Windows 
  * Copyright (c) 2011 Chris Ledet
  * http://github.com/chrisledet/Marker
@@ -20,12 +21,14 @@
  * 
  */
 
+#endregion
+
 using System;
 using MarkdownSharp;
 
 namespace Marker
 {
-    class MarkdownConverter
+    public class MarkdownConverter
     {
 
         private String font;

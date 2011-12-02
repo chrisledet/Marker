@@ -12,8 +12,8 @@ namespace Marker
     public partial class MainWindow : Form
     {
         private String appName;
-        private MarkdownConverter m;
-        private Exporter exporter;
+        private MarkdownConverter converter;
+        private FileHandler fileHandler;
         private String lastSavedFilename, lastSavedFilePath;
 
         public MainWindow(String filePath)
@@ -31,15 +31,12 @@ namespace Marker
         {
             InitializeComponent();
 
-            autoSizeSplitContainer();
-            autoSizeMarkdownTextbox();
-
             appName = "Marker";
 
-            m = new MarkdownConverter();
-            m.Font = "Segoe UI";
+            converter = new MarkdownConverter();
+            converter.Font = "Segoe UI";
 
-            exporter = new Exporter();
+            fileHandler = new FileHandler();
 
             lastSavedFilename = "";
             lastSavedFilePath = "";
@@ -47,7 +44,7 @@ namespace Marker
 
         private void markdownTextBox_TextChanged(object sender, EventArgs e)
         {
-            markdownPreview.DocumentText = m.convert(markdownTextBox.Text);
+            markdownPreview.DocumentText = converter.convert(markdownTextBox.Text);
         }
 
         private void openMenuItem_Click(object sender, EventArgs e)
@@ -76,32 +73,13 @@ namespace Marker
 
         private void exitMenuItem_Click(object sender, EventArgs e)
         {
-            #region TODO
-            /*
-             *  1) check if user wants to save markdown
-             */
-            #endregion
-
             Application.Exit();
         }
 
-        private void autoSizeSplitContainer()
-        {
-            splitContainer.AutoSize = true;
-            splitContainer.Dock = DockStyle.Fill;
-            splitContainer.Parent = this;
-            splitContainer.Margin = new Padding(5, 5, 5, 5);
-        }
-
-        private void autoSizeMarkdownTextbox()
-        {
-            markdownTextBox.Dock = DockStyle.Fill;
-            markdownTextBox.Parent = splitContainer.Panel1;
-        }
-
-        /*
-         * displays a save dialog and returns the file path the user selects
-         */
+        /// <summary>
+        /// Shows SaveFileDialog with Markdown filter
+        /// </summary>
+        /// <returns>filePath - Path to which user selected </returns>
         private String saveMarkdownDialog()
         {
             SaveFileDialog saveDialog = new SaveFileDialog();
@@ -110,6 +88,10 @@ namespace Marker
             return saveDialog.FileName;
         }
 
+        /// <summary>
+        /// Shows OpenFileDialog with Markdown filter
+        /// </summary>
+        /// <returns>filePath - Path to which user selected</returns>
         private String openMarkdownDialog()
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
@@ -120,6 +102,10 @@ namespace Marker
             return fileDialog.FileName;
         }
 
+        /// <summary>
+        /// Shows SaveFileDialog with HTML filter
+        /// </summary>
+        /// <returns>filePath - Path to file which user selected</returns>
         private String saveHtmlDialog()
         {
             SaveFileDialog saveDialog = new SaveFileDialog();
@@ -130,17 +116,17 @@ namespace Marker
             return saveDialog.FileName;
         }
 
-        /*
-         *  appends last saved filename to Main window's title
-         */
+        /// <summary>
+        /// Appends last saved filename to Main window's title
+        /// </summary>
         private void refreshTitle()
         {
             this.Text = String.Format("{0} - {1}", lastSavedFilename, appName);
         }
 
-        /*
-         * setter for the lastSavedFilePath and lastSavedFilename
-         */
+        /// <summary>
+        /// Setter for the lastSavedFilePath and lastSavedFilename
+        /// </summary>
         private void setLastSavedFile(String filePath)
         {
             lastSavedFilePath = filePath;
@@ -152,32 +138,42 @@ namespace Marker
             Console.WriteLine("Saving to {0}", lastSavedFilePath);
             Console.WriteLine("Saved file: {0}", lastSavedFilename);
         }
-
-        /*
-         * opens file from filePath and puts it into markdown TextBox
-         */
+        
+        /// <summary> 
+        /// Opens file from filePath and puts it into markdown TextBox 
+        /// </summary>
+        /// <param name="filePath">File path to Markdown file</param
         private void openFile(String filePath)
         {
-            markdownTextBox.Text = exporter.openFile(filePath);
+            markdownTextBox.Text = fileHandler.openFile(filePath);
             setLastSavedFile(filePath);
             refreshTitle();
         }
 
+        /// <summary>
+        /// Takes Markdown text and sends it to the fileHandler for saving.
+        /// </summary>
+        /// <param name="filePath">File path to save the Markdown file</param>
         private void saveFile(String filePath)
         {
             if (filePath.Trim() == "") return;
 
-            exporter.MarkdownText = markdownTextBox.Text;
-            exporter.saveMarkdown(filePath);
+            fileHandler.MarkdownText = markdownTextBox.Text;
+            fileHandler.saveMarkdown(filePath);
             setLastSavedFile(filePath);
             refreshTitle();
         }
 
+        /// <summary>
+        /// Takes the HTML from the preview and sends it to the 
+        /// fileHandler for saving.
+        /// </summary>
+        /// <param name="filePath">File path to save the HTML file</param>
         private void exportHtml(String filePath)
         {
             if (filePath.Trim() == "") return;
-            exporter.HtmlText = markdownPreview.DocumentText;
-            exporter.saveHtml(filePath);
+            fileHandler.HtmlText = markdownPreview.DocumentText;
+            fileHandler.saveHtml(filePath);
         }
     }
 }
