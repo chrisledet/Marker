@@ -20,7 +20,7 @@ namespace MarkerTests
         [TestMethod]
         public void TestConvert()
         {
-            String convertedMarkdown = converter.convert("### Hello World");
+            String convertedMarkdown = converter.Convert("### Hello World");
             String htmlText = "<h3>Hello World</h3>";
             Assert.IsTrue( convertedMarkdown.Contains(htmlText) );
         }

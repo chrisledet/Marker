@@ -45,12 +45,12 @@ namespace Marker
             markdown = new Markdown();
         }
 
-        public String convert(String text)
+        public String Convert(String text)
         {
-            return String.Format(htmlBody(), markdown.Transform(text));
+            return String.Format(HtmlBody(), markdown.Transform(text));
         }
 
-        private String htmlBody()
+        private String HtmlBody()
         {
             return "<html><body style=\"font: 14px " + Font + "\">{0}</body></html>";
         }

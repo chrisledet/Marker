@@ -20,7 +20,7 @@ namespace Marker
             set { this.markdownText = value; }
         }
 
-        public String openFile(String filePath)
+        public String OpenFile(String filePath)
         {
             if (!File.Exists(filePath)) return "";
 
@@ -37,17 +37,17 @@ namespace Marker
             return fileContents.ToString();
         }
 
-        public void saveMarkdown(String filePath)
+        public void SaveMarkdown(String filePath)
         {
-            saveFile(filePath, markdownText);
+            SaveFile(filePath, markdownText);
         }
 
-        public void saveHtml(String filePath)
+        public void SaveHtml(String filePath)
         {
-            saveFile(filePath, htmlText);
+            SaveFile(filePath, htmlText);
         }
 
-        private void saveFile(String filePath, String text)
+        private void SaveFile(String filePath, String text)
         {
             if (filePath.Trim() == "") return;
 
