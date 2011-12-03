@@ -16,6 +16,7 @@ namespace Marker
         private FileHandler fileHandler;
         private String lastSavedFilename, lastSavedFilePath;
         private bool markdownTextChanged;
+        private Font markdownFont, htmlFont;
 
         #region Constructors
         public MainWindow(String filePath)
@@ -35,16 +36,18 @@ namespace Marker
             this.Icon = Properties.Resources.Marker;
             InitializeComponent();
 
-            appName = "Marker";
+            appName = Application.ProductName;
+ 
+            markdownFont = Properties.Settings.Default.MarkdownFont;
+            htmlFont = Properties.Settings.Default.HtmlFont;
 
             converter = new MarkdownConverter();
-            converter.Font = "Segoe UI";
+            converter.Font = htmlFont;
 
             fileHandler = new FileHandler();
 
             lastSavedFilename = "";
             lastSavedFilePath = "";
-
 
             markdownTextChanged = false;
         }
@@ -52,7 +55,7 @@ namespace Marker
         private void markdownTextBox_TextChanged(object sender, EventArgs e)
         {
             markdownTextChanged = true;
-            markdownPreview.DocumentText = converter.Convert(markdownTextBox.Text);
+            markdownPreview.DocumentText = converter.ToHtml(markdownTextBox.Text);
         }
 
         #region Menu Events
@@ -87,6 +90,11 @@ namespace Marker
         private void exitMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void aboutMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAboutBox();
         }
         #endregion
 
@@ -245,6 +253,14 @@ namespace Marker
         {
             markdownTextBox.Text = "";
             markdownPreview.DocumentText = "";
+        }
+
+        private void ShowAboutBox()
+        {
+            using (AboutBox aboutBox = new AboutBox())
+            {
+                aboutBox.ShowDialog(this);
+            }
         }
     }
 }

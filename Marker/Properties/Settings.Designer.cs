@@ -8,22 +8,42 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Marker.Properties
-{
-
-
+namespace Marker.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "10.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Segoe UI, 14.25pt")]
+        public global::System.Drawing.Font MarkdownFont {
+            get {
+                return ((global::System.Drawing.Font)(this["MarkdownFont"]));
+            }
+            set {
+                this["MarkdownFont"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Segoe UI, 14.25pt")]
+        public global::System.Drawing.Font HtmlFont {
+            get {
+                return ((global::System.Drawing.Font)(this["HtmlFont"]));
+            }
+            set {
+                this["HtmlFont"] = value;
             }
         }
     }

@@ -24,6 +24,7 @@
 #endregion
 
 using System;
+using System.Drawing;
 using MarkdownSharp;
 
 namespace Marker
@@ -31,10 +32,10 @@ namespace Marker
     public class MarkdownConverter
     {
 
-        private String font;
+        private Font font;
         private Markdown markdown;
 
-        public String Font
+        public Font Font
         {
             get { return this.font; }
             set { this.font = value; } 
@@ -45,14 +46,19 @@ namespace Marker
             markdown = new Markdown();
         }
 
-        public String Convert(String text)
+        public String ToHtml(String text)
         {
-            return String.Format(HtmlBody(), markdown.Transform(text));
+            return String.Format("{0}{1}{2}", HtmlHead(), markdown.Transform(text), HtmlFoot());
         }
 
-        private String HtmlBody()
+        private String HtmlHead()
         {
-            return "<html><body style=\"font: 14px " + Font + "\">{0}</body></html>";
+            return String.Format("<html>\n<body style='font: {0}px {1}'>", Font.Size, Font.FontFamily.Name);
+        }
+
+        private String HtmlFoot()
+        {
+            return "</body>\n</html>";
         }
     }
 }
