@@ -58,6 +58,7 @@ namespace Marker
             markdownPreview.DocumentText = converter.ToHtml(markdownTextBox.Text);
         }
 
+
         #region Menu Events
         private void newMenuItem_Click(object sender, EventArgs e)
         {
@@ -138,6 +139,17 @@ namespace Marker
             fileDialog.ShowDialog();
             return fileDialog.FileName;
         }
+
+        /// <summary>
+        /// Shows About Box
+        /// </summary>
+        private void ShowAboutBox()
+        {
+            using (AboutBox aboutBox = new AboutBox())
+            {
+                aboutBox.ShowDialog(this);
+            }
+        }
         #endregion
 
         /// <summary>
@@ -145,7 +157,10 @@ namespace Marker
         /// </summary>
         private void RefreshTitle()
         {
-            this.Text = String.Format("{0} - {1}", lastSavedFilename, appName);
+            if (lastSavedFilename.Trim().Length > 0)
+                this.Text = String.Format("{0} - {1}", lastSavedFilename, appName);
+            else
+                this.Text = appName;
         }
 
         /// <summary>
@@ -154,13 +169,9 @@ namespace Marker
         private void SetLastSavedFile(String filePath)
         {
             lastSavedFilePath = filePath;
-
             int startOfFileName = lastSavedFilePath.LastIndexOf("\\") + 1;
             int length = lastSavedFilePath.Length - startOfFileName;
             lastSavedFilename = lastSavedFilePath.Substring(startOfFileName, length);
-            
-            Console.WriteLine("Saving to {0}", lastSavedFilePath);
-            Console.WriteLine("Saved file: {0}", lastSavedFilename);
         }
         
         /// <summary> 
@@ -211,8 +222,9 @@ namespace Marker
         {
             if (PromptForUnsavedChanges())
             {
-                SetLastSavedFile("Untitled");
+                SetLastSavedFile("");
                 markdownTextChanged = false;
+                RefreshTitle();
                 Clear();
             }
         }
@@ -253,14 +265,6 @@ namespace Marker
         {
             markdownTextBox.Text = "";
             markdownPreview.DocumentText = "";
-        }
-
-        private void ShowAboutBox()
-        {
-            using (AboutBox aboutBox = new AboutBox())
-            {
-                aboutBox.ShowDialog(this);
-            }
         }
     }
 }

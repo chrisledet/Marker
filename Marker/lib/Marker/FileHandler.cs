@@ -24,17 +24,13 @@ namespace Marker
         {
             if (!File.Exists(filePath)) return "";
 
-            StringBuilder fileContents = new StringBuilder();
+            String fileContents;
             using (StreamReader sr = new StreamReader(filePath))
             {
-                String line;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    fileContents.AppendFormat("{0}\r\n", line);
-                }
+                fileContents = sr.ReadToEnd();
             }
 
-            return fileContents.ToString();
+            return fileContents;
         }
 
         public void SaveMarkdown(String filePath)
