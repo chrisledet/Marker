@@ -52,12 +52,17 @@ namespace Marker
             markdownTextChanged = false;
         }
 
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!PromptForUnsavedChanges())
+                e.Cancel = true;
+        }
+
         private void markdownTextBox_TextChanged(object sender, EventArgs e)
         {
             markdownTextChanged = true;
             markdownPreview.DocumentText = converter.ToHtml(markdownTextBox.Text);
         }
-
 
         #region Menu Events
         private void newMenuItem_Click(object sender, EventArgs e)
