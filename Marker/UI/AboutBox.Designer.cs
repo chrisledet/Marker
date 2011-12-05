@@ -140,8 +140,8 @@
             this.textBoxDescription.Size = new System.Drawing.Size(271, 126);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
-            this.textBoxDescription.Text = "Markdown Editor for Windows\r\n\r\nWebsite: http://ledet.io/Marker\r\n\r\nSource code: ht" +
-    "tps://github.com/chrisledet/Marker\r\n";
+            this.textBoxDescription.Text = "Markdown Editor for Windows\r\n\r\nWebsite:\r\nhttp://ledet.io/Marker\r\n\r\nSource code: \r" +
+    "\nhttps://github.com/chrisledet/Marker\r\n";
             // 
             // okButton
             // 
