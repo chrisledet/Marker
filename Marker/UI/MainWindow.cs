@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Marker
+namespace Marker.UI
 {
     public partial class MainWindow : Form
     {
@@ -16,7 +16,8 @@ namespace Marker
         private FileHandler fileHandler;
         private String lastSavedFilename, lastSavedFilePath;
         private bool markdownTextChanged;
-        private Font markdownFont, htmlFont;
+
+        protected Font markdownFont, htmlFont;
 
         #region Constructors
         public MainWindow(String filePath)
@@ -52,6 +53,7 @@ namespace Marker
             markdownTextChanged = false;
         }
 
+        #region Form Events
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!PromptForUnsavedChanges())
@@ -63,6 +65,7 @@ namespace Marker
             markdownTextChanged = true;
             markdownPreview.DocumentText = converter.ToHtml(markdownTextBox.Text);
         }
+        #endregion
 
         #region Menu Events
         private void newMenuItem_Click(object sender, EventArgs e)
@@ -100,7 +103,12 @@ namespace Marker
 
         private void aboutMenuItem_Click(object sender, EventArgs e)
         {
-            ShowAboutBox();
+            ShowAboutWindow();
+        }
+
+        private void preferencesMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowPreferenceWindow();
         }
         #endregion
 
@@ -148,11 +156,21 @@ namespace Marker
         /// <summary>
         /// Shows About Box
         /// </summary>
-        private void ShowAboutBox()
+        private void ShowAboutWindow()
         {
-            using (AboutBox aboutBox = new AboutBox())
+            using (AboutBox aboutWindow = new AboutBox())
             {
-                aboutBox.ShowDialog(this);
+                aboutWindow.ShowDialog(this);
+            }
+        }
+
+        private void ShowPreferenceWindow()
+        {
+            using (PreferenceWindow preferenceWindow = new PreferenceWindow())
+            {
+                preferenceWindow.ShowDialog(this);
+                markdownFont = preferenceWindow.markdownFont;
+                htmlFont     = preferenceWindow.htmlFont;
             }
         }
         #endregion

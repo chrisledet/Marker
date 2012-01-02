@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace Marker
+namespace Marker.UI
 {
     partial class AboutBox : Form
     {
