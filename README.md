@@ -8,7 +8,7 @@ Markdown Editor for Windows.
 * Export to HTML
 
 ## Screenshot
-![screenshot](http://i.imgur.com/8b2nv.png)
+![screenshot](http://ledet.io/Marker/images/screenshot1.png)
 
 ## Acknowledgements
 * [MarkdownSharp](http://code.google.com/p/markdownsharp/)
