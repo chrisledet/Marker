@@ -1,5 +1,5 @@
-# Marker
-Markdown Editor for Windows. 
+# Marker ![Status](http://stillmaintained.com/chrisledet/Marker.png)
+Markdown Editor for Windows.
 
 ## Features
 *  Dual panes allow for quick editing and viewing
