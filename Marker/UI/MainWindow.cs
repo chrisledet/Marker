@@ -34,8 +34,10 @@ namespace Marker.UI
 
         private void InitializeWindow()
         {
-            this.Icon = Properties.Resources.Marker;
             InitializeComponent();
+
+            this.Size = UserSettings.LoadWindowSize();
+            this.Icon = Properties.Resources.Marker;
 
             appName = Application.ProductName;
  
@@ -56,6 +58,7 @@ namespace Marker.UI
         #region Form Events
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
+            UserSettings.SaveWindowSize(this.Size);
             if (!PromptForUnsavedChanges())
                 e.Cancel = true;
         }
